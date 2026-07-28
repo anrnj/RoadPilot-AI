@@ -9,7 +9,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun DashboardScreen() {
+fun DashboardScreen(
+    status: String = "Ready",
+    onDashcamClick: () -> Unit = {},
+    onNavigationClick: () -> Unit = {},
+    onAIAssistantClick: () -> Unit = {},
+    onMusicClick: () -> Unit = {},
+    onVehicleClick: () -> Unit = {},
+    onSettingsClick: () -> Unit = {}
+) {
 
     Column(
         modifier = Modifier
@@ -27,7 +35,7 @@ fun DashboardScreen() {
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(
-            onClick = { },
+            onClick = onDashcamClick,
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("📹 Dashcam")
@@ -36,7 +44,7 @@ fun DashboardScreen() {
         Spacer(modifier = Modifier.height(10.dp))
 
         Button(
-            onClick = { },
+            onClick = onNavigationClick,
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("🗺 Navigation")
@@ -45,7 +53,7 @@ fun DashboardScreen() {
         Spacer(modifier = Modifier.height(10.dp))
 
         Button(
-            onClick = { },
+            onClick = onAIAssistantClick,
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("🎤 AI Assistant")
@@ -54,7 +62,7 @@ fun DashboardScreen() {
         Spacer(modifier = Modifier.height(10.dp))
 
         Button(
-            onClick = { },
+            onClick = onMusicClick,
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("🎵 Music")
@@ -63,7 +71,7 @@ fun DashboardScreen() {
         Spacer(modifier = Modifier.height(10.dp))
 
         Button(
-            onClick = { },
+            onClick = onVehicleClick,
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("🚗 Vehicle")
@@ -72,7 +80,7 @@ fun DashboardScreen() {
         Spacer(modifier = Modifier.height(10.dp))
 
         Button(
-            onClick = { },
+            onClick = onSettingsClick,
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("⚙ Settings")
@@ -80,6 +88,9 @@ fun DashboardScreen() {
 
         Spacer(modifier = Modifier.height(30.dp))
 
-        Text("Status: Ready")
+        Text(
+            text = "Status: $status",
+            fontSize = 18.sp
+        )
     }
 }
