@@ -1,16 +1,13 @@
 package com.roadpilot.ai
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.roadpilot.ai.ui.DashboardScreen
 import com.roadpilot.ai.ui.theme.RoadpilotTheme
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import com.roadpilot.ai.viewmodel.DashboardViewModel
 
 class MainActivity : ComponentActivity() {
 
@@ -21,37 +18,36 @@ class MainActivity : ComponentActivity() {
 
         setContent {
 
-            var status by remember {
-                mutableStateOf("Ready")
-            }
+            val dashboardViewModel: DashboardViewModel = viewModel()
 
             RoadpilotTheme {
+
                 DashboardScreen(
-                    status = status,
+
+                    status = dashboardViewModel.status,
 
                     onDashcamClick = {
-                        Toast.makeText(this, "Dashcam clicked", Toast.LENGTH_SHORT).show()
+                        dashboardViewModel.updateStatus("Dashcam Selected")
                     },
 
                     onNavigationClick = {
-                        Toast.makeText(this, "Navigation clicked", Toast.LENGTH_SHORT).show()
+                        dashboardViewModel.updateStatus("Navigation Selected")
                     },
 
                     onAIAssistantClick = {
-                        status = "🎤 Listening..."
-                        Toast.makeText(this, "Voice Assistant starting...", Toast.LENGTH_SHORT).show()
+                        dashboardViewModel.updateStatus("🎤 Listening...")
                     },
 
                     onMusicClick = {
-                        Toast.makeText(this, "Music clicked", Toast.LENGTH_SHORT).show()
+                        dashboardViewModel.updateStatus("Music Selected")
                     },
 
                     onVehicleClick = {
-                        Toast.makeText(this, "Vehicle clicked", Toast.LENGTH_SHORT).show()
+                        dashboardViewModel.updateStatus("Vehicle Selected")
                     },
 
                     onSettingsClick = {
-                        Toast.makeText(this, "Settings clicked", Toast.LENGTH_SHORT).show()
+                        dashboardViewModel.updateStatus("Settings Selected")
                     }
 
                 )
