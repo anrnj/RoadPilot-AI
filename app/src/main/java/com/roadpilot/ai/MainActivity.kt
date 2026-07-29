@@ -1,83 +1,61 @@
 package com.roadpilot.ai
-import android.provider.Settings
-import com.roadpilot.ai.feature.command.CommandProcessor
-import com.roadpilot.ai.feature.command.CommandType
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.speech.RecognizerIntent
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.lifecycle.ViewModelProvider
+import com.roadpilot.ai.feature.command.CommandProcessor
+import com.roadpilot.ai.feature.executor.CommandExecutor
 import com.roadpilot.ai.ui.DashboardScreen
 import com.roadpilot.ai.ui.theme.RoadpilotTheme
 import com.roadpilot.ai.viewmodel.DashboardViewModel
-import android.app.Activity
-import android.content.Intent
-import android.speech.RecognizerIntent
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.lifecycle.ViewModelProvider
-
 
 class MainActivity : ComponentActivity() {
+
     private lateinit var dashboardViewModel: DashboardViewModel
+
     private val commandProcessor = CommandProcessor()
 
-    private val speechLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
+    private lateinit var commandExecutor: CommandExecutor
 
-        if (result.resultCode == Activity.RESULT_OK) {
+    private val speechLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
 
-            val spokenText = result.data
-                ?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
-                ?.firstOrNull()
+            if (result.resultCode == Activity.RESULT_OK) {
 
-            if (spokenText != null) {
+                val spokenText = result.data
+                    ?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+                    ?.firstOrNull()
 
-                dashboardViewModel.updateStatus(spokenText)
+                if (spokenText != null) {
 
-                when (commandProcessor.process(spokenText)) {
+                    val commandResult = commandProcessor.process(spokenText)
 
-                    CommandType.OPEN_SETTINGS -> {
-                        startActivity(
-                            Intent(Settings.ACTION_SETTINGS)
-                        )
-                    }
-
-                    CommandType.OPEN_MAPS -> {
-
-                        dashboardViewModel.updateStatus("🗺 Opening Maps...")
-
-                        val intent = packageManager.getLaunchIntentForPackage(
-                            "com.google.android.apps.maps"
-                        )
-
-                        if (intent != null) {
-                            startActivity(intent)
-                        } else {
-                            dashboardViewModel.updateStatus("Google Maps not installed")
-                        }
-                    }
-
-                    CommandType.PLAY_MUSIC -> {
-                        dashboardViewModel.updateStatus("🎵 Opening Music...")
-                    }
-
-                    CommandType.UNKNOWN -> {
-                        dashboardViewModel.updateStatus("❓ Unknown Command")
+                    commandExecutor.execute(commandResult) { status ->
+                        dashboardViewModel.updateStatus(status)
                     }
                 }
             }
         }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
 
-        setContent {
+        dashboardViewModel =
+            ViewModelProvider(this)[DashboardViewModel::class.java]
 
-            dashboardViewModel = ViewModelProvider(this)[DashboardViewModel::class.java]
+        commandExecutor = CommandExecutor(this)
+
+        setContent {
 
             RoadpilotTheme {
 
@@ -97,15 +75,20 @@ class MainActivity : ComponentActivity() {
 
                         dashboardViewModel.updateStatus("🎤 Listening...")
 
-                        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+                        val intent = Intent(
+                            RecognizerIntent.ACTION_RECOGNIZE_SPEECH
+                        ).apply {
+
                             putExtra(
                                 RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
                             )
+
                             putExtra(
                                 RecognizerIntent.EXTRA_LANGUAGE,
                                 "en-IN"
                             )
+
                             putExtra(
                                 RecognizerIntent.EXTRA_PROMPT,
                                 "Speak now..."
@@ -126,7 +109,6 @@ class MainActivity : ComponentActivity() {
                     onSettingsClick = {
                         dashboardViewModel.updateStatus("Settings Selected")
                     }
-
                 )
             }
         }
