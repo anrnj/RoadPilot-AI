@@ -1,4 +1,7 @@
 package com.roadpilot.ai
+import android.provider.Settings
+import com.roadpilot.ai.feature.command.CommandProcessor
+import com.roadpilot.ai.feature.command.CommandType
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,8 +16,10 @@ import android.speech.RecognizerIntent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 
+
 class MainActivity : ComponentActivity() {
     private lateinit var dashboardViewModel: DashboardViewModel
+    private val commandProcessor = CommandProcessor()
 
     private val speechLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -27,7 +32,40 @@ class MainActivity : ComponentActivity() {
                 ?.firstOrNull()
 
             if (spokenText != null) {
+
                 dashboardViewModel.updateStatus(spokenText)
+
+                when (commandProcessor.process(spokenText)) {
+
+                    CommandType.OPEN_SETTINGS -> {
+                        startActivity(
+                            Intent(Settings.ACTION_SETTINGS)
+                        )
+                    }
+
+                    CommandType.OPEN_MAPS -> {
+
+                        dashboardViewModel.updateStatus("🗺 Opening Maps...")
+
+                        val intent = packageManager.getLaunchIntentForPackage(
+                            "com.google.android.apps.maps"
+                        )
+
+                        if (intent != null) {
+                            startActivity(intent)
+                        } else {
+                            dashboardViewModel.updateStatus("Google Maps not installed")
+                        }
+                    }
+
+                    CommandType.PLAY_MUSIC -> {
+                        dashboardViewModel.updateStatus("🎵 Opening Music...")
+                    }
+
+                    CommandType.UNKNOWN -> {
+                        dashboardViewModel.updateStatus("❓ Unknown Command")
+                    }
+                }
             }
         }
     }
