@@ -1,5 +1,6 @@
 package com.roadpilot.ai.feature.dashcam
 
+import com.roadpilot.ai.core.sensors.AccidentDetector
 import com.roadpilot.ai.core.location.CompassManager
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -41,9 +42,13 @@ fun DashcamScreen() {
     val compassManager = remember {
         CompassManager(context)
     }
+    val accidentDetector = remember {
+        AccidentDetector(context)
+    }
 
     var speed by remember { mutableStateOf(0) }
     var direction by remember { mutableStateOf("N") }
+    var accidentDetected by remember { mutableStateOf(false) }
 
     var isRecording by remember { mutableStateOf(false) }
     var seconds by remember { mutableIntStateOf(0) }
@@ -70,10 +75,16 @@ fun DashcamScreen() {
         }
 
         compassManager.start()
+        accidentDetector.onAccidentDetected = {
+            accidentDetected = true
+        }
+
+        accidentDetector.start()
 
         onDispose {
             locationManager.stopLocationUpdates()
             compassManager.stop()
+            accidentDetector.stop()
         }
     }
 
@@ -81,6 +92,12 @@ fun DashcamScreen() {
         if (!isRecording) {
             delay(1000)
             cameraManager.startRecording()
+        }
+    }
+    LaunchedEffect(accidentDetected) {
+        if (accidentDetected) {
+            delay(5000)
+            accidentDetected = false
         }
     }
 
@@ -114,6 +131,12 @@ fun DashcamScreen() {
             text = "🧭 $direction",
             style = MaterialTheme.typography.titleLarge
         )
+        if (accidentDetected) {
+            Text(
+                text = "⚠️ Possible Accident Detected",
+                style = MaterialTheme.typography.titleLarge
+            )
+        }
 
         if (isRecording) {
 
