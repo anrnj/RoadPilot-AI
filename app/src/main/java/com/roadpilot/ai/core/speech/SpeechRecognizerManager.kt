@@ -1,4 +1,4 @@
-package com.roadpilot.ai.voice
+package com.roadpilot.ai.core.speech
 
 import android.content.Context
 import android.content.Intent

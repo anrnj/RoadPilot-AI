@@ -1,4 +1,4 @@
-package com.roadpilot.ai.viewmodel
+package com.roadpilot.ai.feature.dashboard
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

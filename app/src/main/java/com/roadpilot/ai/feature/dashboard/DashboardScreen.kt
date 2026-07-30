@@ -1,4 +1,4 @@
-package com.roadpilot.ai.ui
+package com.roadpilot.ai.feature.dashboard
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*

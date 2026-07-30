@@ -9,11 +9,14 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.compose.rememberNavController
 import com.roadpilot.ai.feature.command.CommandProcessor
+import com.roadpilot.ai.feature.dashboard.DashboardScreen
+import com.roadpilot.ai.feature.dashboard.DashboardViewModel
 import com.roadpilot.ai.feature.executor.CommandExecutor
-import com.roadpilot.ai.ui.DashboardScreen
+import com.roadpilot.ai.navigation.AppNavigation
+import com.roadpilot.ai.navigation.AppScreen
 import com.roadpilot.ai.ui.theme.RoadpilotTheme
-import com.roadpilot.ai.viewmodel.DashboardViewModel
 
 class MainActivity : ComponentActivity() {
 
@@ -59,55 +62,65 @@ class MainActivity : ComponentActivity() {
 
             RoadpilotTheme {
 
-                DashboardScreen(
+                val navController = rememberNavController()
 
-                    status = dashboardViewModel.status,
+                AppNavigation(
 
-                    onDashcamClick = {
-                        dashboardViewModel.updateStatus("Dashcam Selected")
-                    },
+                    navController = navController,
 
-                    onNavigationClick = {
-                        dashboardViewModel.updateStatus("Navigation Selected")
-                    },
+                    dashboard = {
 
-                    onAIAssistantClick = {
+                        DashboardScreen(
 
-                        dashboardViewModel.updateStatus("🎤 Listening...")
+                            status = dashboardViewModel.status,
 
-                        val intent = Intent(
-                            RecognizerIntent.ACTION_RECOGNIZE_SPEECH
-                        ).apply {
+                            onDashcamClick = {
+                                navController.navigate(AppScreen.Dashcam.route)
+                            },
 
-                            putExtra(
-                                RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
-                            )
+                            onNavigationClick = {
+                                navController.navigate(AppScreen.Navigation.route)
+                            },
 
-                            putExtra(
-                                RecognizerIntent.EXTRA_LANGUAGE,
-                                "en-IN"
-                            )
+                            onAIAssistantClick = {
 
-                            putExtra(
-                                RecognizerIntent.EXTRA_PROMPT,
-                                "Speak now..."
-                            )
-                        }
+                                dashboardViewModel.updateStatus("🎤 Listening...")
 
-                        speechLauncher.launch(intent)
-                    },
+                                val intent = Intent(
+                                    RecognizerIntent.ACTION_RECOGNIZE_SPEECH
+                                ).apply {
 
-                    onMusicClick = {
-                        dashboardViewModel.updateStatus("Music Selected")
-                    },
+                                    putExtra(
+                                        RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                                        RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+                                    )
 
-                    onVehicleClick = {
-                        dashboardViewModel.updateStatus("Vehicle Selected")
-                    },
+                                    putExtra(
+                                        RecognizerIntent.EXTRA_LANGUAGE,
+                                        "en-IN"
+                                    )
 
-                    onSettingsClick = {
-                        dashboardViewModel.updateStatus("Settings Selected")
+                                    putExtra(
+                                        RecognizerIntent.EXTRA_PROMPT,
+                                        "Speak now..."
+                                    )
+                                }
+
+                                speechLauncher.launch(intent)
+                            },
+
+                            onMusicClick = {
+                                navController.navigate(AppScreen.Music.route)
+                            },
+
+                            onVehicleClick = {
+                                navController.navigate(AppScreen.Vehicle.route)
+                            },
+
+                            onSettingsClick = {
+                                navController.navigate(AppScreen.Settings.route)
+                            }
+                        )
                     }
                 )
             }
