@@ -1,5 +1,6 @@
 package com.roadpilot.ai.feature.dashcam
 
+import com.roadpilot.ai.core.location.CompassManager
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -32,11 +33,17 @@ fun DashcamScreen() {
         )
     }
 
+
     val locationManager = remember {
         LocationManager(context)
     }
 
+    val compassManager = remember {
+        CompassManager(context)
+    }
+
     var speed by remember { mutableStateOf(0) }
+    var direction by remember { mutableStateOf("N") }
 
     var isRecording by remember { mutableStateOf(false) }
     var seconds by remember { mutableIntStateOf(0) }
@@ -58,9 +65,15 @@ fun DashcamScreen() {
         }
 
         locationManager.startLocationUpdates()
+        compassManager.onDirectionChanged = {
+            direction = it
+        }
+
+        compassManager.start()
 
         onDispose {
             locationManager.stopLocationUpdates()
+            compassManager.stop()
         }
     }
 
@@ -95,6 +108,10 @@ fun DashcamScreen() {
 
         Text(
             text = "🚗 $speed km/h",
+            style = MaterialTheme.typography.titleLarge
+        )
+        Text(
+            text = "🧭 $direction",
             style = MaterialTheme.typography.titleLarge
         )
 
