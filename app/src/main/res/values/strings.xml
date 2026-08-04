@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RoadPilot AI</string>
+    <string name="app_name_short">RoadPilot</string>
+
+    <!-- Navigation -->
+    <string name="nav_drive">Drive</string>
+    <string name="nav_camera">Camera</string>
+    <string name="nav_ai">AI</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Drive Screen -->
+    <string name="speed_format">%d km/h</string>
+    <string name="speed_unit_kmh">km/h</string>
+    <string name="speed_unit_mph">mph</string>
+    <string name="compass_north">N</string>
+    <string name="compass_south">S</string>
+    <string name="compass_east">E</string>
+    <string name="compass_west">W</string>
+
+    <!-- Camera Screen -->
+    <string name="recording_start">Start Recording</string>
+    <string name="recording_stop">Stop Recording</string>
+    <string name="recording_pause">Pause Recording</string>
+    <string name="recording_resume">Resume Recording</string>
+    <string name="recording_protect">Protect Recording</string>
+    <string name="recording_settings">Recording Settings</string>
+    <string name="video_quality">Video Quality</string>
+    <string name="loop_duration">Loop Duration</string>
+    <string name="video_quality_high">High (1080p)</string>
+    <string name="video_quality_medium">Medium (720p)</string>
+    <string name="video_quality_low">Low (480p)</string>
+
+    <!-- AI Assistant -->
+    <string name="ai_wake_phrase">Hey RoadPilot</string>
+    <string name="ai_listening">Listening…</string>
+    <string name="ai_processing">Processing…</string>
+    <string name="ai_speaking">Speaking…</string>
+    <string name="ai_offline_mode">AI Offline Mode</string>
+    <string name="ai_online_mode">AI Online Mode</string>
+
+    <!-- Settings -->
+    <string name="settings_general">General</string>
+    <string name="settings_recording">Recording</string>
+    <string name="settings_navigation">Navigation</string>
+    <string name="settings_ai">AI Assistant</string>
+    <string name="settings_safety">Safety</string>
+    <string name="settings_cloud">Cloud</string>
+    <string name="settings_about">About</string>
+
+    <!-- Operating Modes -->
+    <string name="mode_offline">Offline</string>
+    <string name="mode_online">Online</string>
+    <string name="mode_hybrid">Hybrid</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_recording">Dashcam Recording</string>
+    <string name="notification_channel_location">Location Tracking</string>
+    <string name="notification_channel_ai">AI Assistant</string>
+    <string name="notification_channel_safety">Safety Alerts</string>
+
+    <!-- Permissions -->
+    <string name="permission_camera_required">Camera permission is required for dashcam functionality</string>
+    <string name="permission_location_required">Location permission is required for GPS tracking</string>
+    <string name="permission_microphone_required">Microphone permission is required for voice commands</string>
+    <string name="permission_storage_required">Storage permission is required for video recording</string>
+
+    <!-- Safety -->
+    <string name="sos_title">Emergency SOS</string>
+    <string name="sos_message">Emergency alert sent to your contacts</string>
+    <string name="impact_detected">Impact detected! Recording protected.</string>
+
+    <!-- Greetings -->
+    <string name="greeting_morning">Good morning</string>
+    <string name="greeting_afternoon">Good afternoon</string>
+    <string name="greeting_evening">Good evening</string>
+    <string name="greeting_welcome_back">Welcome back</string>
+
+    <!-- Actions -->
+    <string name="action_navigate">Navigate</string>
+    <string name="action_call">Call</string>
+    <string name="action_play">Play</string>
+    <string name="action_stop">Stop</string>
+    <string name="action_pause">Pause</string>
+    <string name="action_resume">Resume</string>
+    <string name="action_search">Search</string>
+    <string name="action_protect">Protect</string>
+</resources>

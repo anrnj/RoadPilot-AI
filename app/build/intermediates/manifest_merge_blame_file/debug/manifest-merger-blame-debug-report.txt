@@ -1,0 +1,662 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.roadpilot.ai"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Camera Permissions -->
+12    <uses-feature
+12-->/workspace/project/app/src/main/AndroidManifest.xml:6:5-85
+13        android:name="android.hardware.camera"
+13-->/workspace/project/app/src/main/AndroidManifest.xml:6:19-57
+14        android:required="false" />
+14-->/workspace/project/app/src/main/AndroidManifest.xml:6:58-82
+15    <uses-feature
+15-->/workspace/project/app/src/main/AndroidManifest.xml:7:5-95
+16        android:name="android.hardware.camera.autofocus"
+16-->/workspace/project/app/src/main/AndroidManifest.xml:7:19-67
+17        android:required="false" />
+17-->/workspace/project/app/src/main/AndroidManifest.xml:7:68-92
+18
+19    <uses-permission android:name="android.permission.CAMERA" />
+19-->/workspace/project/app/src/main/AndroidManifest.xml:8:5-65
+19-->/workspace/project/app/src/main/AndroidManifest.xml:8:22-62
+20    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+20-->/workspace/project/app/src/main/AndroidManifest.xml:9:5-71
+20-->/workspace/project/app/src/main/AndroidManifest.xml:9:22-68
+21
+22    <!-- Location Permissions -->
+23    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+23-->/workspace/project/app/src/main/AndroidManifest.xml:12:5-79
+23-->/workspace/project/app/src/main/AndroidManifest.xml:12:22-76
+24    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+24-->/workspace/project/app/src/main/AndroidManifest.xml:13:5-81
+24-->/workspace/project/app/src/main/AndroidManifest.xml:13:22-78
+25    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+25-->/workspace/project/app/src/main/AndroidManifest.xml:14:5-85
+25-->/workspace/project/app/src/main/AndroidManifest.xml:14:22-82
+26
+27    <!-- Storage Permissions -->
+28    <uses-permission
+28-->/workspace/project/app/src/main/AndroidManifest.xml:17:5-107
+29        android:name="android.permission.READ_EXTERNAL_STORAGE"
+29-->/workspace/project/app/src/main/AndroidManifest.xml:17:22-77
+30        android:maxSdkVersion="32" />
+30-->/workspace/project/app/src/main/AndroidManifest.xml:17:78-104
+31    <uses-permission
+31-->/workspace/project/app/src/main/AndroidManifest.xml:18:5-108
+32        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+32-->/workspace/project/app/src/main/AndroidManifest.xml:18:22-78
+33        android:maxSdkVersion="29" />
+33-->/workspace/project/app/src/main/AndroidManifest.xml:18:79-105
+34    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+34-->/workspace/project/app/src/main/AndroidManifest.xml:19:5-75
+34-->/workspace/project/app/src/main/AndroidManifest.xml:19:22-72
+35    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+35-->/workspace/project/app/src/main/AndroidManifest.xml:20:5-75
+35-->/workspace/project/app/src/main/AndroidManifest.xml:20:22-72
+36
+37    <!-- Network Permissions -->
+38    <uses-permission android:name="android.permission.INTERNET" />
+38-->/workspace/project/app/src/main/AndroidManifest.xml:23:5-67
+38-->/workspace/project/app/src/main/AndroidManifest.xml:23:22-64
+39    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+39-->/workspace/project/app/src/main/AndroidManifest.xml:24:5-79
+39-->/workspace/project/app/src/main/AndroidManifest.xml:24:22-76
+40
+41    <!-- Phone Permissions -->
+42    <uses-permission android:name="android.permission.CALL_PHONE" />
+42-->/workspace/project/app/src/main/AndroidManifest.xml:27:5-69
+42-->/workspace/project/app/src/main/AndroidManifest.xml:27:22-66
+43    <uses-permission android:name="android.permission.READ_CONTACTS" />
+43-->/workspace/project/app/src/main/AndroidManifest.xml:28:5-72
+43-->/workspace/project/app/src/main/AndroidManifest.xml:28:22-69
+44    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+44-->/workspace/project/app/src/main/AndroidManifest.xml:29:5-75
+44-->/workspace/project/app/src/main/AndroidManifest.xml:29:22-72
+45
+46    <!-- Foreground Service -->
+47    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+47-->/workspace/project/app/src/main/AndroidManifest.xml:32:5-77
+47-->/workspace/project/app/src/main/AndroidManifest.xml:32:22-74
+48    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+48-->/workspace/project/app/src/main/AndroidManifest.xml:33:5-84
+48-->/workspace/project/app/src/main/AndroidManifest.xml:33:22-81
+49    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+49-->/workspace/project/app/src/main/AndroidManifest.xml:34:5-86
+49-->/workspace/project/app/src/main/AndroidManifest.xml:34:22-83
+50    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+50-->/workspace/project/app/src/main/AndroidManifest.xml:35:5-92
+50-->/workspace/project/app/src/main/AndroidManifest.xml:35:22-89
+51    <uses-permission android:name="android.permission.WAKE_LOCK" />
+51-->/workspace/project/app/src/main/AndroidManifest.xml:36:5-68
+51-->/workspace/project/app/src/main/AndroidManifest.xml:36:22-65
+52    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+52-->/workspace/project/app/src/main/AndroidManifest.xml:37:5-77
+52-->/workspace/project/app/src/main/AndroidManifest.xml:37:22-74
+53
+54    <!-- Bluetooth -->
+55    <uses-permission
+55-->/workspace/project/app/src/main/AndroidManifest.xml:40:5-95
+56        android:name="android.permission.BLUETOOTH"
+56-->/workspace/project/app/src/main/AndroidManifest.xml:40:22-65
+57        android:maxSdkVersion="30" />
+57-->/workspace/project/app/src/main/AndroidManifest.xml:40:66-92
+58    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+58-->/workspace/project/app/src/main/AndroidManifest.xml:41:5-76
+58-->/workspace/project/app/src/main/AndroidManifest.xml:41:22-73
+59
+60    <!-- Vibration for notifications -->
+61    <uses-permission android:name="android.permission.VIBRATE" />
+61-->/workspace/project/app/src/main/AndroidManifest.xml:44:5-66
+61-->/workspace/project/app/src/main/AndroidManifest.xml:44:22-63
+62
+63    <!-- Boot completed for auto-start -->
+64    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+64-->/workspace/project/app/src/main/AndroidManifest.xml:47:5-81
+64-->/workspace/project/app/src/main/AndroidManifest.xml:47:22-78
+65
+66    <!-- Sensors for impact detection -->
+67    <uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS" />
+67-->/workspace/project/app/src/main/AndroidManifest.xml:50:5-85
+67-->/workspace/project/app/src/main/AndroidManifest.xml:50:22-82
+68
+69    <uses-feature
+69-->[com.google.android.gms:play-services-maps:18.2.0] /home/openhands/.gradle/caches/transforms-3/234f9115ecb5e9add80d5d9af3071387/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:26:5-28:35
+70        android:glEsVersion="0x00020000"
+70-->[com.google.android.gms:play-services-maps:18.2.0] /home/openhands/.gradle/caches/transforms-3/234f9115ecb5e9add80d5d9af3071387/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:27:9-41
+71        android:required="true" />
+71-->[com.google.android.gms:play-services-maps:18.2.0] /home/openhands/.gradle/caches/transforms-3/234f9115ecb5e9add80d5d9af3071387/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:28:9-32
+72
+73    <queries>
+73-->[com.google.android.gms:play-services-maps:18.2.0] /home/openhands/.gradle/caches/transforms-3/234f9115ecb5e9add80d5d9af3071387/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:30:5-34:15
+74
+75        <!-- Needs to be explicitly declared on Android R+ -->
+76        <package android:name="com.google.android.apps.maps" />
+76-->[com.google.android.gms:play-services-maps:18.2.0] /home/openhands/.gradle/caches/transforms-3/234f9115ecb5e9add80d5d9af3071387/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:33:9-64
+76-->[com.google.android.gms:play-services-maps:18.2.0] /home/openhands/.gradle/caches/transforms-3/234f9115ecb5e9add80d5d9af3071387/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:33:18-61
+77    </queries>
+78
+79    <permission
+79-->[androidx.core:core:1.12.0] /home/openhands/.gradle/caches/transforms-3/3f7ebdfcf751ca2bd53f92251c3c7f60/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+80        android:name="com.roadpilot.ai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+80-->[androidx.core:core:1.12.0] /home/openhands/.gradle/caches/transforms-3/3f7ebdfcf751ca2bd53f92251c3c7f60/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+81        android:protectionLevel="signature" />
+81-->[androidx.core:core:1.12.0] /home/openhands/.gradle/caches/transforms-3/3f7ebdfcf751ca2bd53f92251c3c7f60/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+82
+83    <uses-permission android:name="com.roadpilot.ai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+83-->[androidx.core:core:1.12.0] /home/openhands/.gradle/caches/transforms-3/3f7ebdfcf751ca2bd53f92251c3c7f60/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+83-->[androidx.core:core:1.12.0] /home/openhands/.gradle/caches/transforms-3/3f7ebdfcf751ca2bd53f92251c3c7f60/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+84
+85    <application
+85-->/workspace/project/app/src/main/AndroidManifest.xml:52:5-160:19
+86        android:name="com.roadpilot.ai.RoadPilotApp"
+86-->/workspace/project/app/src/main/AndroidManifest.xml:53:9-37
+87        android:allowBackup="true"
+87-->/workspace/project/app/src/main/AndroidManifest.xml:54:9-35
+88        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+88-->[androidx.core:core:1.12.0] /home/openhands/.gradle/caches/transforms-3/3f7ebdfcf751ca2bd53f92251c3c7f60/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+89        android:debuggable="true"
+90        android:enableOnBackInvokedCallback="true"
+90-->/workspace/project/app/src/main/AndroidManifest.xml:60:9-51
+91        android:extractNativeLibs="false"
+92        android:icon="@mipmap/ic_launcher"
+92-->/workspace/project/app/src/main/AndroidManifest.xml:55:9-43
+93        android:label="@string/app_name"
+93-->/workspace/project/app/src/main/AndroidManifest.xml:56:9-41
+94        android:roundIcon="@mipmap/ic_launcher_round"
+94-->/workspace/project/app/src/main/AndroidManifest.xml:57:9-54
+95        android:supportsRtl="true"
+95-->/workspace/project/app/src/main/AndroidManifest.xml:58:9-35
+96        android:theme="@style/Theme.RoadPilotAI" >
+96-->/workspace/project/app/src/main/AndroidManifest.xml:59:9-49
+97
+98        <!-- Google Maps API Key -->
+99        <meta-data
+100            android:name="com.google.android.geo.API_KEY"
+100-->/workspace/project/app/src/main/AndroidManifest.xml:65:13-58
+101            android:value="AIzaSyDxUOa066d9OurWzMu5EapeEzZ5RRwdOTg" />
+101-->/workspace/project/app/src/main/AndroidManifest.xml:66:13-51
+102
+103        <activity
+103-->/workspace/project/app/src/main/AndroidManifest.xml:68:9-86:20
+104            android:name="com.roadpilot.ai.ui.MainActivity"
+104-->/workspace/project/app/src/main/AndroidManifest.xml:69:13-44
+105            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+105-->/workspace/project/app/src/main/AndroidManifest.xml:72:13-87
+106            android:exported="true"
+106-->/workspace/project/app/src/main/AndroidManifest.xml:70:13-36
+107            android:launchMode="singleTop"
+107-->/workspace/project/app/src/main/AndroidManifest.xml:74:13-43
+108            android:screenOrientation="sensorLandscape"
+108-->/workspace/project/app/src/main/AndroidManifest.xml:71:13-56
+109            android:theme="@style/Theme.RoadPilotAI.Splash"
+109-->/workspace/project/app/src/main/AndroidManifest.xml:75:13-60
+110            android:windowSoftInputMode="adjustResize" >
+110-->/workspace/project/app/src/main/AndroidManifest.xml:73:13-55
+111            <intent-filter>
+111-->/workspace/project/app/src/main/AndroidManifest.xml:76:13-79:29
+112                <action android:name="android.intent.action.MAIN" />
+112-->/workspace/project/app/src/main/AndroidManifest.xml:77:17-69
+112-->/workspace/project/app/src/main/AndroidManifest.xml:77:25-66
+113
+114                <category android:name="android.intent.category.LAUNCHER" />
+114-->/workspace/project/app/src/main/AndroidManifest.xml:78:17-77
+114-->/workspace/project/app/src/main/AndroidManifest.xml:78:27-74
+115            </intent-filter>
+116
+117            <!-- Car mode intent filter -->
+118            <intent-filter>
+118-->/workspace/project/app/src/main/AndroidManifest.xml:82:13-85:29
+119                <action android:name="android.intent.action.MAIN" />
+119-->/workspace/project/app/src/main/AndroidManifest.xml:77:17-69
+119-->/workspace/project/app/src/main/AndroidManifest.xml:77:25-66
+120
+121                <category android:name="android.intent.category.CAR_MODE" />
+121-->/workspace/project/app/src/main/AndroidManifest.xml:84:17-77
+121-->/workspace/project/app/src/main/AndroidManifest.xml:84:27-74
+122            </intent-filter>
+123        </activity>
+124
+125        <!-- Dashcam Recording Service -->
+126        <service
+126-->/workspace/project/app/src/main/AndroidManifest.xml:89:9-93:65
+127            android:name="com.roadpilot.ai.service.DashcamService"
+127-->/workspace/project/app/src/main/AndroidManifest.xml:90:13-51
+128            android:enabled="true"
+128-->/workspace/project/app/src/main/AndroidManifest.xml:91:13-35
+129            android:exported="false"
+129-->/workspace/project/app/src/main/AndroidManifest.xml:92:13-37
+130            android:foregroundServiceType="camera|microphone" />
+130-->/workspace/project/app/src/main/AndroidManifest.xml:93:13-62
+131
+132        <!-- Location Tracking Service -->
+133        <service
+133-->/workspace/project/app/src/main/AndroidManifest.xml:96:9-100:56
+134            android:name="com.roadpilot.ai.service.LocationService"
+134-->/workspace/project/app/src/main/AndroidManifest.xml:97:13-52
+135            android:enabled="true"
+135-->/workspace/project/app/src/main/AndroidManifest.xml:98:13-35
+136            android:exported="false"
+136-->/workspace/project/app/src/main/AndroidManifest.xml:99:13-37
+137            android:foregroundServiceType="location" />
+137-->/workspace/project/app/src/main/AndroidManifest.xml:100:13-53
+138
+139        <!-- Media Playback Service -->
+140        <service
+140-->/workspace/project/app/src/main/AndroidManifest.xml:103:9-112:19
+141            android:name="com.roadpilot.ai.service.MediaService"
+141-->/workspace/project/app/src/main/AndroidManifest.xml:104:13-49
+142            android:enabled="true"
+142-->/workspace/project/app/src/main/AndroidManifest.xml:105:13-35
+143            android:exported="true"
+143-->/workspace/project/app/src/main/AndroidManifest.xml:106:13-36
+144            android:foregroundServiceType="mediaPlayback"
+144-->/workspace/project/app/src/main/AndroidManifest.xml:107:13-58
+145            android:permission="android.permission.BIND_MEDIA_ROUTE_COMMAND" >
+145-->/workspace/project/app/src/main/AndroidManifest.xml:108:13-77
+146            <intent-filter>
+146-->/workspace/project/app/src/main/AndroidManifest.xml:109:13-111:29
+147                <action android:name="androidx.media3.session.MediaSessionService" />
+147-->/workspace/project/app/src/main/AndroidManifest.xml:110:17-86
+147-->/workspace/project/app/src/main/AndroidManifest.xml:110:25-83
+148            </intent-filter>
+149        </service>
+150
+151        <!-- Voice Assistant Service -->
+152        <service
+152-->/workspace/project/app/src/main/AndroidManifest.xml:115:9-119:58
+153            android:name="com.roadpilot.ai.service.VoiceAssistantService"
+153-->/workspace/project/app/src/main/AndroidManifest.xml:116:13-58
+154            android:enabled="true"
+154-->/workspace/project/app/src/main/AndroidManifest.xml:117:13-35
+155            android:exported="false"
+155-->/workspace/project/app/src/main/AndroidManifest.xml:118:13-37
+156            android:foregroundServiceType="microphone" />
+156-->/workspace/project/app/src/main/AndroidManifest.xml:119:13-55
+157
+158        <!-- Boot Receiver -->
+159        <receiver
+159-->/workspace/project/app/src/main/AndroidManifest.xml:122:9-130:20
+160            android:name="com.roadpilot.ai.receiver.BootReceiver"
+160-->/workspace/project/app/src/main/AndroidManifest.xml:123:13-50
+161            android:enabled="true"
+161-->/workspace/project/app/src/main/AndroidManifest.xml:124:13-35
+162            android:exported="true" >
+162-->/workspace/project/app/src/main/AndroidManifest.xml:125:13-36
+163            <intent-filter>
+163-->/workspace/project/app/src/main/AndroidManifest.xml:126:13-129:29
+164                <action android:name="android.intent.action.BOOT_COMPLETED" />
+164-->/workspace/project/app/src/main/AndroidManifest.xml:127:17-79
+164-->/workspace/project/app/src/main/AndroidManifest.xml:127:25-76
+165                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+165-->/workspace/project/app/src/main/AndroidManifest.xml:128:17-82
+165-->/workspace/project/app/src/main/AndroidManifest.xml:128:25-79
+166            </intent-filter>
+167        </receiver>
+168
+169        <!-- Car Mode Receiver -->
+170        <receiver
+170-->/workspace/project/app/src/main/AndroidManifest.xml:133:9-141:20
+171            android:name="com.roadpilot.ai.receiver.CarModeReceiver"
+171-->/workspace/project/app/src/main/AndroidManifest.xml:134:13-53
+172            android:enabled="true"
+172-->/workspace/project/app/src/main/AndroidManifest.xml:135:13-35
+173            android:exported="true" >
+173-->/workspace/project/app/src/main/AndroidManifest.xml:136:13-36
+174            <intent-filter>
+174-->/workspace/project/app/src/main/AndroidManifest.xml:137:13-140:29
+175                <action android:name="android.intent.action.DOCK_EVENT" />
+175-->/workspace/project/app/src/main/AndroidManifest.xml:138:17-75
+175-->/workspace/project/app/src/main/AndroidManifest.xml:138:25-72
+176                <action android:name="android.intent.action.BOOT_COMPLETED" />
+176-->/workspace/project/app/src/main/AndroidManifest.xml:127:17-79
+176-->/workspace/project/app/src/main/AndroidManifest.xml:127:25-76
+177            </intent-filter>
+178        </receiver>
+179
+180        <!-- Impact Detection Receiver -->
+181        <receiver
+181-->/workspace/project/app/src/main/AndroidManifest.xml:144:9-147:40
+182            android:name="com.roadpilot.ai.receiver.ImpactDetectionReceiver"
+182-->/workspace/project/app/src/main/AndroidManifest.xml:145:13-61
+183            android:enabled="true"
+183-->/workspace/project/app/src/main/AndroidManifest.xml:146:13-35
+184            android:exported="false" />
+184-->/workspace/project/app/src/main/AndroidManifest.xml:147:13-37
+185
+186        <!-- File Provider for sharing videos -->
+187        <provider
+188            android:name="androidx.core.content.FileProvider"
+188-->/workspace/project/app/src/main/AndroidManifest.xml:151:13-62
+189            android:authorities="com.roadpilot.ai.fileprovider"
+189-->/workspace/project/app/src/main/AndroidManifest.xml:152:13-64
+190            android:exported="false"
+190-->/workspace/project/app/src/main/AndroidManifest.xml:153:13-37
+191            android:grantUriPermissions="true" >
+191-->/workspace/project/app/src/main/AndroidManifest.xml:154:13-47
+192            <meta-data
+192-->/workspace/project/app/src/main/AndroidManifest.xml:155:13-157:54
+193                android:name="android.support.FILE_PROVIDER_PATHS"
+193-->/workspace/project/app/src/main/AndroidManifest.xml:156:17-67
+194                android:resource="@xml/file_paths" />
+194-->/workspace/project/app/src/main/AndroidManifest.xml:157:17-51
+195        </provider>
+196
+197        <service
+197-->[androidx.camera:camera-camera2:1.3.0] /home/openhands/.gradle/caches/transforms-3/316712e3dbc476627d7d9908551ae79f/transformed/jetified-camera-camera2-1.3.0/AndroidManifest.xml:24:9-33:19
+198            android:name="androidx.camera.core.impl.MetadataHolderService"
+198-->[androidx.camera:camera-camera2:1.3.0] /home/openhands/.gradle/caches/transforms-3/316712e3dbc476627d7d9908551ae79f/transformed/jetified-camera-camera2-1.3.0/AndroidManifest.xml:25:13-75
+199            android:enabled="false"
+199-->[androidx.camera:camera-camera2:1.3.0] /home/openhands/.gradle/caches/transforms-3/316712e3dbc476627d7d9908551ae79f/transformed/jetified-camera-camera2-1.3.0/AndroidManifest.xml:26:13-36
+200            android:exported="false" >
+200-->[androidx.camera:camera-camera2:1.3.0] /home/openhands/.gradle/caches/transforms-3/316712e3dbc476627d7d9908551ae79f/transformed/jetified-camera-camera2-1.3.0/AndroidManifest.xml:27:13-37
+201            <meta-data
+201-->[androidx.camera:camera-camera2:1.3.0] /home/openhands/.gradle/caches/transforms-3/316712e3dbc476627d7d9908551ae79f/transformed/jetified-camera-camera2-1.3.0/AndroidManifest.xml:30:13-32:89
+202                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+202-->[androidx.camera:camera-camera2:1.3.0] /home/openhands/.gradle/caches/transforms-3/316712e3dbc476627d7d9908551ae79f/transformed/jetified-camera-camera2-1.3.0/AndroidManifest.xml:31:17-103
+203                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+203-->[androidx.camera:camera-camera2:1.3.0] /home/openhands/.gradle/caches/transforms-3/316712e3dbc476627d7d9908551ae79f/transformed/jetified-camera-camera2-1.3.0/AndroidManifest.xml:32:17-86
+204        </service>
+205
+206        <provider
+206-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:29:9-37:20
+207            android:name="androidx.startup.InitializationProvider"
+207-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:30:13-67
+208            android:authorities="com.roadpilot.ai.androidx-startup"
+208-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:31:13-68
+209            android:exported="false" >
+209-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:32:13-37
+210            <meta-data
+210-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:34:13-36:52
+211                android:name="androidx.work.WorkManagerInitializer"
+211-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:35:17-68
+212                android:value="androidx.startup" />
+212-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:36:17-49
+213            <meta-data
+213-->[androidx.emoji2:emoji2:1.4.0] /home/openhands/.gradle/caches/transforms-3/d4eaf93d44202e34f4de199b37ddbdea/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+214                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+214-->[androidx.emoji2:emoji2:1.4.0] /home/openhands/.gradle/caches/transforms-3/d4eaf93d44202e34f4de199b37ddbdea/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:30:17-75
+215                android:value="androidx.startup" />
+215-->[androidx.emoji2:emoji2:1.4.0] /home/openhands/.gradle/caches/transforms-3/d4eaf93d44202e34f4de199b37ddbdea/transformed/jetified-emoji2-1.4.0/AndroidManifest.xml:31:17-49
+216            <meta-data
+216-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/openhands/.gradle/caches/transforms-3/a804b6bfdc2384e6cde0d844c0a462b4/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+217                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+217-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/openhands/.gradle/caches/transforms-3/a804b6bfdc2384e6cde0d844c0a462b4/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+218                android:value="androidx.startup" />
+218-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/openhands/.gradle/caches/transforms-3/a804b6bfdc2384e6cde0d844c0a462b4/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+219            <meta-data
+219-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+220                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+220-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+221                android:value="androidx.startup" />
+221-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+222        </provider>
+223
+224        <service
+224-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:39:9-45:35
+225            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+225-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:40:13-88
+226            android:directBootAware="false"
+226-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:41:13-44
+227            android:enabled="@bool/enable_system_alarm_service_default"
+227-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:42:13-72
+228            android:exported="false" />
+228-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:43:13-37
+229        <service
+229-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:46:9-52:35
+230            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+230-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:47:13-84
+231            android:directBootAware="false"
+231-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:48:13-44
+232            android:enabled="@bool/enable_system_job_service_default"
+232-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:49:13-70
+233            android:exported="true"
+233-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:50:13-36
+234            android:permission="android.permission.BIND_JOB_SERVICE" />
+234-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:51:13-69
+235        <service
+235-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:53:9-59:35
+236            android:name="androidx.work.impl.foreground.SystemForegroundService"
+236-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:54:13-81
+237            android:directBootAware="false"
+237-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:55:13-44
+238            android:enabled="@bool/enable_system_foreground_service_default"
+238-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:56:13-77
+239            android:exported="false" />
+239-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:57:13-37
+240
+241        <receiver
+241-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:61:9-66:35
+242            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+242-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:62:13-88
+243            android:directBootAware="false"
+243-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:63:13-44
+244            android:enabled="true"
+244-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:64:13-35
+245            android:exported="false" />
+245-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:65:13-37
+246        <receiver
+246-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:67:9-77:20
+247            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+247-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:68:13-106
+248            android:directBootAware="false"
+248-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:69:13-44
+249            android:enabled="false"
+249-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:70:13-36
+250            android:exported="false" >
+250-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:71:13-37
+251            <intent-filter>
+251-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:73:13-76:29
+252                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+252-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:74:17-87
+252-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:74:25-84
+253                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+253-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:75:17-90
+253-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:75:25-87
+254            </intent-filter>
+255        </receiver>
+256        <receiver
+256-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:78:9-88:20
+257            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+257-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:79:13-104
+258            android:directBootAware="false"
+258-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:80:13-44
+259            android:enabled="false"
+259-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:81:13-36
+260            android:exported="false" >
+260-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:82:13-37
+261            <intent-filter>
+261-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:84:13-87:29
+262                <action android:name="android.intent.action.BATTERY_OKAY" />
+262-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:85:17-77
+262-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:85:25-74
+263                <action android:name="android.intent.action.BATTERY_LOW" />
+263-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:86:17-76
+263-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:86:25-73
+264            </intent-filter>
+265        </receiver>
+266        <receiver
+266-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:89:9-99:20
+267            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+267-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:90:13-104
+268            android:directBootAware="false"
+268-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:91:13-44
+269            android:enabled="false"
+269-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:92:13-36
+270            android:exported="false" >
+270-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:93:13-37
+271            <intent-filter>
+271-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:95:13-98:29
+272                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+272-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:96:17-83
+272-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:96:25-80
+273                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+273-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:97:17-82
+273-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:97:25-79
+274            </intent-filter>
+275        </receiver>
+276        <receiver
+276-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:100:9-109:20
+277            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+277-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:101:13-103
+278            android:directBootAware="false"
+278-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:102:13-44
+279            android:enabled="false"
+279-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:103:13-36
+280            android:exported="false" >
+280-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:104:13-37
+281            <intent-filter>
+281-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:106:13-108:29
+282                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+282-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:107:17-79
+282-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:107:25-76
+283            </intent-filter>
+284        </receiver>
+285        <receiver
+285-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:110:9-121:20
+286            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+286-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:111:13-88
+287            android:directBootAware="false"
+287-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:112:13-44
+288            android:enabled="false"
+288-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:113:13-36
+289            android:exported="false" >
+289-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:114:13-37
+290            <intent-filter>
+290-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:116:13-120:29
+291                <action android:name="android.intent.action.BOOT_COMPLETED" />
+291-->/workspace/project/app/src/main/AndroidManifest.xml:127:17-79
+291-->/workspace/project/app/src/main/AndroidManifest.xml:127:25-76
+292                <action android:name="android.intent.action.TIME_SET" />
+292-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:118:17-73
+292-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:118:25-70
+293                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+293-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:119:17-81
+293-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:119:25-78
+294            </intent-filter>
+295        </receiver>
+296        <receiver
+296-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:122:9-131:20
+297            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+297-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:123:13-99
+298            android:directBootAware="false"
+298-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:124:13-44
+299            android:enabled="@bool/enable_system_alarm_service_default"
+299-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:125:13-72
+300            android:exported="false" >
+300-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:126:13-37
+301            <intent-filter>
+301-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:128:13-130:29
+302                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+302-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:129:17-98
+302-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:129:25-95
+303            </intent-filter>
+304        </receiver>
+305        <receiver
+305-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:132:9-142:20
+306            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+306-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:133:13-78
+307            android:directBootAware="false"
+307-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:134:13-44
+308            android:enabled="true"
+308-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:135:13-35
+309            android:exported="true"
+309-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:136:13-36
+310            android:permission="android.permission.DUMP" >
+310-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:137:13-57
+311            <intent-filter>
+311-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:139:13-141:29
+312                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+312-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:140:17-88
+312-->[androidx.work:work-runtime:2.9.0] /home/openhands/.gradle/caches/transforms-3/620512d77b075d484914d936bf2e9b30/transformed/work-runtime-2.9.0/AndroidManifest.xml:140:25-85
+313            </intent-filter>
+314        </receiver> <!-- Needs to be explicitly declared on P+ -->
+315        <uses-library
+315-->[com.google.android.gms:play-services-maps:18.2.0] /home/openhands/.gradle/caches/transforms-3/234f9115ecb5e9add80d5d9af3071387/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:39:9-41:40
+316            android:name="org.apache.http.legacy"
+316-->[com.google.android.gms:play-services-maps:18.2.0] /home/openhands/.gradle/caches/transforms-3/234f9115ecb5e9add80d5d9af3071387/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:40:13-50
+317            android:required="false" />
+317-->[com.google.android.gms:play-services-maps:18.2.0] /home/openhands/.gradle/caches/transforms-3/234f9115ecb5e9add80d5d9af3071387/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:41:13-37
+318
+319        <activity
+319-->[com.google.android.gms:play-services-base:18.1.0] /home/openhands/.gradle/caches/transforms-3/b55f1a574e4c21cf22e2e1f3bf39d8be/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+320            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+320-->[com.google.android.gms:play-services-base:18.1.0] /home/openhands/.gradle/caches/transforms-3/b55f1a574e4c21cf22e2e1f3bf39d8be/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+321            android:exported="false"
+321-->[com.google.android.gms:play-services-base:18.1.0] /home/openhands/.gradle/caches/transforms-3/b55f1a574e4c21cf22e2e1f3bf39d8be/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+322            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+322-->[com.google.android.gms:play-services-base:18.1.0] /home/openhands/.gradle/caches/transforms-3/b55f1a574e4c21cf22e2e1f3bf39d8be/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+323        <activity
+323-->[androidx.compose.ui:ui-tooling-android:1.5.4] /home/openhands/.gradle/caches/transforms-3/bdc2cf70a0b0898b0f9b485fc7452c03/transformed/jetified-ui-tooling-release/AndroidManifest.xml:23:9-25:39
+324            android:name="androidx.compose.ui.tooling.PreviewActivity"
+324-->[androidx.compose.ui:ui-tooling-android:1.5.4] /home/openhands/.gradle/caches/transforms-3/bdc2cf70a0b0898b0f9b485fc7452c03/transformed/jetified-ui-tooling-release/AndroidManifest.xml:24:13-71
+325            android:exported="true" />
+325-->[androidx.compose.ui:ui-tooling-android:1.5.4] /home/openhands/.gradle/caches/transforms-3/bdc2cf70a0b0898b0f9b485fc7452c03/transformed/jetified-ui-tooling-release/AndroidManifest.xml:25:13-36
+326        <activity
+326-->[androidx.compose.ui:ui-test-manifest:1.5.4] /home/openhands/.gradle/caches/transforms-3/a396cc4e3e19e8c2b775cc89d1496c8d/transformed/jetified-ui-test-manifest-1.5.4/AndroidManifest.xml:23:9-25:39
+327            android:name="androidx.activity.ComponentActivity"
+327-->[androidx.compose.ui:ui-test-manifest:1.5.4] /home/openhands/.gradle/caches/transforms-3/a396cc4e3e19e8c2b775cc89d1496c8d/transformed/jetified-ui-test-manifest-1.5.4/AndroidManifest.xml:24:13-63
+328            android:exported="true" />
+328-->[androidx.compose.ui:ui-test-manifest:1.5.4] /home/openhands/.gradle/caches/transforms-3/a396cc4e3e19e8c2b775cc89d1496c8d/transformed/jetified-ui-test-manifest-1.5.4/AndroidManifest.xml:25:13-36
+329
+330        <service
+330-->[androidx.room:room-runtime:2.6.1] /home/openhands/.gradle/caches/transforms-3/6a26a1b86d9dda6a6f3986da71490651/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+331            android:name="androidx.room.MultiInstanceInvalidationService"
+331-->[androidx.room:room-runtime:2.6.1] /home/openhands/.gradle/caches/transforms-3/6a26a1b86d9dda6a6f3986da71490651/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+332            android:directBootAware="true"
+332-->[androidx.room:room-runtime:2.6.1] /home/openhands/.gradle/caches/transforms-3/6a26a1b86d9dda6a6f3986da71490651/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+333            android:exported="false" />
+333-->[androidx.room:room-runtime:2.6.1] /home/openhands/.gradle/caches/transforms-3/6a26a1b86d9dda6a6f3986da71490651/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+334
+335        <receiver
+335-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+336            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+336-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+337            android:directBootAware="false"
+337-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+338            android:enabled="true"
+338-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+339            android:exported="true"
+339-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+340            android:permission="android.permission.DUMP" >
+340-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+341            <intent-filter>
+341-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+342                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+342-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+342-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+343            </intent-filter>
+344            <intent-filter>
+344-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+345                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+345-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+345-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+346            </intent-filter>
+347            <intent-filter>
+347-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+348                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+348-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+348-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+349            </intent-filter>
+350            <intent-filter>
+350-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+351                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+351-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+351-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/openhands/.gradle/caches/transforms-3/ec9f99fd7b6ae0a062c20002758a2e77/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+352            </intent-filter>
+353        </receiver>
+354
+355        <meta-data
+355-->[com.google.android.gms:play-services-basement:18.1.0] /home/openhands/.gradle/caches/transforms-3/7594bc7fce57ce66506d80d48107bc33/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+356            android:name="com.google.android.gms.version"
+356-->[com.google.android.gms:play-services-basement:18.1.0] /home/openhands/.gradle/caches/transforms-3/7594bc7fce57ce66506d80d48107bc33/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+357            android:value="@integer/google_play_services_version" />
+357-->[com.google.android.gms:play-services-basement:18.1.0] /home/openhands/.gradle/caches/transforms-3/7594bc7fce57ce66506d80d48107bc33/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+358    </application>
+359
+360</manifest>

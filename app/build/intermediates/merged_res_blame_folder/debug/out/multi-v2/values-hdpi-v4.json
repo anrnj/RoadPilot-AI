@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.roadpilot.ai.app-mergeDebugResources-81:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/home/openhands/.gradle/caches/transforms-3/86b21cb35843688c0ea3ee7552d9aaf6/transformed/appcompat-1.1.0/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}
